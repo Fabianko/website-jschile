@@ -18,18 +18,22 @@ const Footer = () => {
       sx={{
         bgcolor: '#FFFFFF',
         color: 'black',
-        py: { xs: 4, md: 5 },
-        px: { xs: 4, md: 10 },
+        py: { xs: 1.5, md: 2 },
+        px: { xs: 2, md: 4 },
         borderRadius: '32px',
-        textAlign: 'center',
+        display: 'flex',
+        flexDirection: { xs: 'column', md: 'row' },
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: { xs: 1, md: 2 },
       }}
     >
-      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
         <Typography
           sx={{
             fontWeight: 950,
             color: '#F0DB4F',
-            fontSize: { xs: '1.5rem', md: '1.8rem' },
+            fontSize: { xs: '1rem', md: '1.2rem' },
             letterSpacing: '-0.04em',
           }}
         >
@@ -39,9 +43,8 @@ const Footer = () => {
           sx={{
             fontWeight: 950,
             color: 'black',
-            fontSize: { xs: '1.5rem', md: '1.8rem' },
+            fontSize: { xs: '1rem', md: '1.2rem' },
             letterSpacing: '-0.04em',
-            ml: 1,
           }}
         >
           Chile
@@ -53,14 +56,13 @@ const Footer = () => {
         sx={{
           fontWeight: 500,
           color: '#666',
-          fontSize: '0.85rem',
-          mb: 2,
+          fontSize: '0.75rem',
         }}
       >
         Comunidad de JavaScript • Desde 2013
       </Typography>
 
-      <Box sx={{ display: 'flex', gap: 0.5, justifyContent: 'center', mb: 2 }}>
+      <Box sx={{ display: 'flex', gap: 0.5, alignItems: 'center' }}>
         <IconButton 
           size='small'
           href='https://github.com/jschile'
@@ -69,7 +71,7 @@ const Footer = () => {
           component='a'
           sx={{ color: '#000' }}
         >
-          <GitHubIcon sx={{ fontSize: 20 }} />
+          <GitHubIcon sx={{ fontSize: 18 }} />
         </IconButton>
         <IconButton 
           size='small'
@@ -79,7 +81,7 @@ const Footer = () => {
           component='a'
           sx={{ color: '#000' }}
         >
-          <LinkedInIcon sx={{ fontSize: 20 }} />
+          <LinkedInIcon sx={{ fontSize: 18 }} />
         </IconButton>
         <IconButton 
           size='small'
@@ -89,7 +91,7 @@ const Footer = () => {
           component='a'
           sx={{ color: '#000' }}
         >
-          <TwitterIcon sx={{ fontSize: 20 }} />
+          <TwitterIcon sx={{ fontSize: 18 }} />
         </IconButton>
         <IconButton 
           size='small'
@@ -97,11 +99,11 @@ const Footer = () => {
           component='a'
           sx={{ color: '#000' }}
         >
-          <MailIcon sx={{ fontSize: 20 }} />
+          <MailIcon sx={{ fontSize: 18 }} />
         </IconButton>
       </Box>
 
-      <Typography variant='caption' sx={{ fontWeight: 500, color: '#999' }}>
+      <Typography variant='caption' sx={{ fontWeight: 500, color: '#999', fontSize: '0.65rem' }}>
         © 2026 JavaScript Chile • Desarrollado por{' '}
         <Link
           href='https://www.armandorivasv.dev/'

@@ -27,7 +27,7 @@ const Staff: React.FC = () => {
   const exStaff = DATA_STAFF.filter((staff) => staff.isExStaff);
 
   return (
-    <Container maxWidth='xl' sx={{ px: { xs: 4, md: 8, lg: 12 }, mb: 4 }}>
+    <Container maxWidth='xl' sx={{ px: { xs: 4, md: 8, lg: 12 }, mb: 2 }}>
       <Grid container spacing={4}>
         <Grid size={12}>
           <Box

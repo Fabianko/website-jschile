@@ -34,10 +34,10 @@ export default function MuiRootProvider({
           <Box sx={{ position: 'relative', zIndex: 1 }}>
             <Navbar />
           </Box>
-          <Box sx={{ flexGrow: 1, py: 8, position: 'relative', zIndex: 1 }}>
+          <Box sx={{ flexGrow: 1, py: 4, position: 'relative', zIndex: 1 }}>
             {children}
           </Box>
-          <Box sx={{ px: { xs: 4, md: 8, lg: 12 }, pb: 8, position: 'relative', zIndex: 1 }}>
+          <Box sx={{ px: { xs: 4, md: 4, lg: 12 }, pb: 8, position: 'relative', zIndex: 1 }}>
             <Footer />
           </Box>
         </Box>
