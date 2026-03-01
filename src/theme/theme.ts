@@ -88,6 +88,7 @@ const theme = createTheme({
         html: {
           maxWidth: '100vw',
           overflowX: 'clip',
+          scrollBehavior: 'smooth',
         },
         body: {
           maxWidth: '100vw',
@@ -99,6 +100,10 @@ const theme = createTheme({
           color: 'inherit',
           textDecoration: 'none',
         },
+        // Remover márgenes de Typography globalmente
+        '.MuiTypography-root': {
+          marginBottom: 0,
+        },
       },
     },
     MuiCardContent: {
@@ -108,6 +113,7 @@ const theme = createTheme({
           display: "flex",
           flexDirection: "column",
           flexGrow: 1,
+          marginBottom: 0,
           "&:last-child": {
             paddingBottom: "32px",
           },
@@ -125,7 +131,7 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          padding: '12px 24px',
+          padding: '24px 24px',
           borderRadius: 100,
           boxShadow: 'none',
           textTransform: 'none',
@@ -143,12 +149,58 @@ const theme = createTheme({
         },
       },
     },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          marginBottom: 0,
+        },
+        h1: {
+          marginBottom: 0,
+        },
+        h2: {
+          marginBottom: 0,
+        },
+        h3: {
+          marginBottom: 0,
+        },
+        h4: {
+          marginBottom: 0,
+        },
+        h5: {
+          marginBottom: 0,
+        },
+        h6: {
+          marginBottom: 0,
+        },
+        body1: {
+          marginBottom: 0,
+        },
+        body2: {
+          marginBottom: 0,
+        },
+        subtitle1: {
+          marginBottom: 0,
+        },
+        subtitle2: {
+          marginBottom: 0,
+        },
+        caption: {
+          marginBottom: 0,
+        },
+        overline: {
+          marginBottom: 0,
+        },
+      },
+    },
     MuiCard: {
       styleOverrides: {
         root: {
           boxShadow: 'none',
           border: 'none',
           borderRadius: 32,
+          backgroundColor: 'rgba(255, 255, 255, 0.85)',
+          backdropFilter: 'blur(10px)',
+          WebkitBackdropFilter: 'blur(10px)',
         },
       },
     },

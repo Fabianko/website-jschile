@@ -2,11 +2,11 @@
 
 import React, { useState } from 'react';
 import { CardActions } from '@mui/material';
-import { CodeOfConductModal } from './CodeOfConductModal';
+import { GalleryModal } from './GalleryModal';
 import { AnimatedButton } from '@/components/AnimatedButton';
 import { AnimatedCard } from '@/components/AnimatedCard';
 
-export const CodeOfConduct = () => {
+export const Gallery = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -19,15 +19,12 @@ export const CodeOfConduct = () => {
             fullWidth
             onClick={() => setIsModalOpen(true)}
           >
-            Lee Nuestros Valores
+            Revive los Momentos
           </AnimatedButton>
         </CardActions>
       </AnimatedCard>
 
-      <CodeOfConductModal
-        open={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      <GalleryModal open={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   );
 };

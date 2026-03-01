@@ -18,6 +18,8 @@ export const HeroInfo = () => {
         position: 'relative',
         overflow: 'hidden',
         border: 'none',
+        backdropFilter: 'none',
+        WebkitBackdropFilter: 'none',
       }}
     >
       <Grid container spacing={4} alignItems='center'>

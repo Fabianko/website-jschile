@@ -4,9 +4,9 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import { AnimatedButton } from '@/components/AnimatedButton';
 
 const itemData = [
   {
@@ -77,13 +77,16 @@ const HomeGallery = () => {
                   Revive los mejores momentos de nuestros meetups y
                   conferencias. Inspiración y aprendizaje en cada encuentro.
                 </Typography>
-                <Button
+                <AnimatedButton
                   variant='contained'
                   color='secondary'
+                  href='https://gallery.jsconf.cl/'
+                  target='_blank'
+                  rel='noopener noreferrer'
                   sx={{ py: 2.5, px: 8 }}
                 >
                   Galería Completa →
-                </Button>
+                </AnimatedButton>
               </Grid>
               <Grid size={{ xs: 12, lg: 7 }}>
                 <Box sx={{ width: '100%', height: 'auto' }}>

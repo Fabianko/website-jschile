@@ -164,7 +164,6 @@ const HomeHallOfFame = () => {
             <Typography
               variant='h2'
               sx={{
-                mb: 2,
                 color: 'black',
                 fontWeight: 900,
                 letterSpacing: '-0.03em',

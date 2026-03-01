@@ -9,6 +9,7 @@ import theme from '@/theme/theme';
 import Navbar from '@/layout/Navbar';
 import Footer from '@/layout/Footer';
 import Box from '@mui/material/Box';
+import { StarsBackground } from '@/components/StarsBackground';
 
 export default function MuiRootProvider({
   children,
@@ -24,12 +25,19 @@ export default function MuiRootProvider({
             display: 'flex',
             flexDirection: 'column',
             minHeight: '100vh',
-            bgcolor: '#0B0B0B', // Explicit black background for contrast
+            position: 'relative',
+            bgcolor: '#0B0B0B',
+            zIndex: 0,
           }}
         >
-          <Navbar />
-          <Box sx={{ flexGrow: 1, py: 8 }}>{children}</Box>
-          <Box sx={{ px: { xs: 4, md: 8, lg: 12 }, pb: 8 }}>
+          <StarsBackground />
+          <Box sx={{ position: 'relative', zIndex: 1 }}>
+            <Navbar />
+          </Box>
+          <Box sx={{ flexGrow: 1, py: 8, position: 'relative', zIndex: 1 }}>
+            {children}
+          </Box>
+          <Box sx={{ px: { xs: 4, md: 8, lg: 12 }, pb: 8, position: 'relative', zIndex: 1 }}>
             <Footer />
           </Box>
         </Box>

@@ -7,6 +7,9 @@ import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import CloseIcon from '@mui/icons-material/Close';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LanguageIcon from '@mui/icons-material/Language';
+import MailIcon from '@mui/icons-material/Mail';
 import { StaffMember } from '@/data/data_staff';
 
 interface StaffModalProps {
@@ -54,7 +57,7 @@ const StaffModal: React.FC<StaffModalProps> = ({ open, onClose, staff }) => {
         <Avatar
           src={staff.imageUrl}
           alt={staff.fullName}
-          sx={{ width: 120, height: 120, mb: 2 }}
+          sx={{ width: 120, height: 120 }}
         />
 
         <Typography
@@ -72,26 +75,58 @@ const StaffModal: React.FC<StaffModalProps> = ({ open, onClose, staff }) => {
           {staff.role}
         </Typography>
 
-        <Typography variant='body2' color='text.secondary' sx={{ mb: 2 }}>
+        <Typography variant='body2' color='text.secondary' sx={{ mb: 3 }}>
           {staff.date}
         </Typography>
 
-        <Link
-          href={staff.linkedin}
-          target='_blank'
-          rel='noopener noreferrer'
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: 0.5,
-            textDecoration: 'none',
-          }}
-        >
-          <LinkedInIcon color='primary' />
-          <Typography variant='body2' color='primary' fontWeight='medium'>
-            LinkedIn
-          </Typography>
-        </Link>
+        <Box sx={{ display: 'flex', gap: 1 }}>
+          {staff.linkedin && (
+            <Link
+              href={staff.linkedin}
+              target='_blank'
+              rel='noopener noreferrer'
+              sx={{ display: 'flex', alignItems: 'center' }}
+            >
+              <IconButton size='small' sx={{ color: 'primary.main' }}>
+                <LinkedInIcon />
+              </IconButton>
+            </Link>
+          )}
+          {staff.instagram && (
+            <Link
+              href={staff.instagram}
+              target='_blank'
+              rel='noopener noreferrer'
+              sx={{ display: 'flex', alignItems: 'center' }}
+            >
+              <IconButton size='small' sx={{ color: '#E4405F' }}>
+                <InstagramIcon />
+              </IconButton>
+            </Link>
+          )}
+          {staff.website && (
+            <Link
+              href={staff.website}
+              target='_blank'
+              rel='noopener noreferrer'
+              sx={{ display: 'flex', alignItems: 'center' }}
+            >
+              <IconButton size='small' sx={{ color: '#000' }}>
+                <LanguageIcon />
+              </IconButton>
+            </Link>
+          )}
+          {staff.email && (
+            <Link
+              href={`mailto:${staff.email}`}
+              sx={{ display: 'flex', alignItems: 'center' }}
+            >
+              <IconButton size='small' sx={{ color: 'primary.main' }}>
+                <MailIcon />
+              </IconButton>
+            </Link>
+          )}
+        </Box>
       </Box>
     </Modal>
   );

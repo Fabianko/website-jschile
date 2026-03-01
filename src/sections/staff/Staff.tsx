@@ -5,10 +5,9 @@ import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
 import { DATA_STAFF, StaffMember } from '@/data/data_staff';
 import StaffModal from './StaffModal';
+import { StaffCarousel } from '@/components/StaffCarousel';
 
 const Staff: React.FC = () => {
   const [selectedStaff, setSelectedStaff] = useState<StaffMember | null>(null);
@@ -35,125 +34,48 @@ const Staff: React.FC = () => {
             sx={{
               bgcolor: 'white',
               borderRadius: '32px',
-              py: { xs: 6, md: 8 },
-              px: { xs: 2, md: 2 },
+              py: { xs: 3, md: 4 },
+              px: { xs: 1, md: 2 },
               textAlign: 'center',
               overflow: 'hidden',
             }}
           >
-            <Typography
-              variant='h2'
-              sx={{
-                mb: 2,
-                color: 'black',
-                fontWeight: 900,
-                letterSpacing: '-0.03em',
-              }}
-            >
-              Staff
-            </Typography>
-            <Typography
-              sx={{
-                color: '#666',
-                fontWeight: 600,
-                fontSize: '1.2rem',
-                mb: 8,
-              }}
-            >
-              Conoce a las personas que hacen posible JSChile.
-            </Typography>
-
-            <Box sx={{ mb: 8 }}>
+            <Box sx={{ mb: 3 }}>
               <Typography
-                variant='h4'
+                variant='h5'
                 component='h3'
-                fontWeight='bold' // I should keep matching subtitles for the categories
+                fontWeight='bold'
                 textAlign='center'
-                sx={{ mb: 4, color: 'black' }}
+                sx={{ mb: 1, color: 'black' }}
               >
-                Staff Actual
+                ⭐ Staff 2026
               </Typography>
-              <Grid container spacing={4} justifyContent='center'>
-                {currentStaff.map((staff) => (
-                  <Grid size={{ xs: 6, sm: 4, md: 3 }} key={staff.id}>
-                    <Stack
-                      alignItems='center'
-                      spacing={2}
-                      onClick={() => handleOpenModal(staff)}
-                      sx={{
-                        cursor: 'pointer',
-                        transition: 'transform 0.2s',
-                        '&:hover': { transform: 'scale(1.05)' },
-                      }}
-                    >
-                      <Avatar
-                        src={staff.imageUrl}
-                        alt={staff.fullName}
-                        sx={{
-                          width: 100,
-                          height: 100,
-                          border: '4px solid',
-                          borderColor: 'primary.main',
-                        }}
-                      />
-                      <Typography
-                        variant='body1'
-                        fontWeight='medium'
-                        textAlign='center'
-                      >
-                        {staff.fullName}
-                      </Typography>
-                    </Stack>
-                  </Grid>
-                ))}
-              </Grid>
+              <StaffCarousel 
+                staff={currentStaff}
+                onStaffClick={handleOpenModal}
+                size='large'
+                isModalOpen={isModalOpen}
+              />
             </Box>
 
             <Box>
               <Typography
-                variant='h4'
+                variant='h5'
                 component='h3'
                 fontWeight='bold'
                 textAlign='center'
-                sx={{ mb: 4, color: 'black' }}
+                sx={{ mb: 1, color: 'black' }}
               >
-                Ex Staff
+                📅 2023 al 2025
               </Typography>
-              <Grid container spacing={4} justifyContent='center'>
-                {exStaff.map((staff) => (
-                  <Grid size={{ xs: 6, sm: 4, md: 3 }} key={staff.id}>
-                    <Stack
-                      alignItems='center'
-                      spacing={2}
-                      onClick={() => handleOpenModal(staff)}
-                      sx={{
-                        cursor: 'pointer',
-                        transition: 'transform 0.2s',
-                        '&:hover': { transform: 'scale(1.05)' },
-                      }}
-                    >
-                      <Avatar
-                        src={staff.imageUrl}
-                        alt={staff.fullName}
-                        sx={{
-                          width: 80,
-                          height: 80,
-                          border: '4px solid',
-                          borderColor: 'primary.main',
-                        }}
-                      />
-                      <Typography
-                        variant='body2'
-                        fontWeight='medium'
-                        textAlign='center'
-                        color='text.secondary'
-                      >
-                        {staff.fullName}
-                      </Typography>
-                    </Stack>
-                  </Grid>
-                ))}
-              </Grid>
+              <StaffCarousel 
+                staff={exStaff}
+                onStaffClick={handleOpenModal}
+                size='small'
+                isExStaff={true}
+                isModalOpen={isModalOpen}
+                reverseDirection={true}
+              />
             </Box>
 
             <StaffModal

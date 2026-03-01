@@ -2,22 +2,9 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import QueryBuilderIcon from '@mui/icons-material/QueryBuilder';
-import HomeWorkIcon from '@mui/icons-material/HomeWork';
 import BoltIcon from '@mui/icons-material/Bolt';
-
-const DATA_NEXT_EVENT = {
-  title: 'Workshop: React Server Components',
-  date: '28 Feb 2026',
-  time: '19:00 hrs',
-  location: 'Seelie Cafeteria',
-  address: 'Av. Apoquindo 5500, Las Condes, Santiago',
-  link: 'https://luma.com/p4vpjvw1',
-};
+import { AnimatedButton } from '@/components/AnimatedButton';
 
 export const HeroNextEvent = () => {
   return (
@@ -42,109 +29,29 @@ export const HeroNextEvent = () => {
           >
             <BoltIcon />
           </Box>{' '}
-          PRÓXIMO EVENTO
+          PRÓXIMOS EVENTOS
         </Typography>
         <Typography
-          variant='h5'
+          variant='body1'
           sx={{
-            mb: 3,
-            fontWeight: 800,
-            fontSize: '1.8rem',
-            lineHeight: 1.2,
-            letterSpacing: '-0.03em',
+            fontWeight: 600,
+            fontSize: '1rem',
           }}
         >
-          {DATA_NEXT_EVENT.title}
+          🚀 ¿Listo para aprender, conectar y crecer? Descubre nuestros próximos
+          eventos y súmate a la comunidad 💛
         </Typography>
-
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 2,
-            mb: 4,
-          }}
-        >
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            <Box
-              component='span'
-              sx={{
-                fontSize: '1.3rem',
-                color: 'primary.main',
-              }}
-            >
-              <CalendarTodayIcon />
-            </Box>
-            <Typography
-              variant='body2'
-              sx={{ fontWeight: 700, fontSize: '1rem' }}
-            >
-              {DATA_NEXT_EVENT.date}
-            </Typography>
-          </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            <Box
-              component='span'
-              sx={{
-                fontSize: '1.3rem',
-                color: 'primary.main',
-              }}
-            >
-              <QueryBuilderIcon />
-            </Box>
-            <Typography
-              variant='body2'
-              sx={{ fontWeight: 700, fontSize: '1rem' }}
-            >
-              {DATA_NEXT_EVENT.time}
-            </Typography>
-          </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            <Box
-              component='span'
-              sx={{
-                fontSize: '1.3rem',
-                color: 'primary.main',
-              }}
-            >
-              <HomeWorkIcon />
-            </Box>
-            <Typography
-              variant='body2'
-              sx={{ fontWeight: 700, fontSize: '1rem' }}
-            >
-              {DATA_NEXT_EVENT.location}
-            </Typography>
-          </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            <Box
-              component='span'
-              sx={{
-                fontSize: '1.3rem',
-                color: 'primary.main',
-              }}
-            >
-              <LocationOnIcon />
-            </Box>
-            <Typography
-              variant='body2'
-              sx={{ fontWeight: 700, fontSize: '1rem' }}
-            >
-              {DATA_NEXT_EVENT.address}
-            </Typography>
-          </Box>
-        </Box>
       </CardContent>
       <CardActions>
-        <Button
+        <AnimatedButton
           variant='contained'
           color='secondary'
           fullWidth
-          href={DATA_NEXT_EVENT.link}
+          href='https://luma.com/jschile'
           target='_blank'
         >
-          Inscríbete →
-        </Button>
+          🎟️ Ver próximos eventos
+        </AnimatedButton>
       </CardActions>
     </Card>
   );

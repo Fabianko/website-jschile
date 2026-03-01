@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Alert from '@mui/material/Alert';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -16,6 +15,7 @@ import {
   speakerPostulationSchema,
   SpeakerPostulationFormValues,
 } from '@/schemas/speakerPostulation';
+import { AnimatedButton } from '@/components/AnimatedButton';
 
 interface CallForSpeakerModalProps {
   open: boolean;
@@ -127,7 +127,7 @@ export const CallForSpeakerModalForm: React.FC<CallForSpeakerModalProps> = ({
           gutterBottom
           sx={{ pr: 3 }}
         >
-          Postular como Speaker
+          Postular como Speaker 🎤
         </Typography>
 
         <Typography
@@ -135,8 +135,9 @@ export const CallForSpeakerModalForm: React.FC<CallForSpeakerModalProps> = ({
           color='text.secondary'
           sx={{ mb: 4, lineHeight: 1.6 }}
         >
-          ¡Nos encantaría escucharte! Completa el siguiente formulario para
-          enviarnos tu propuesta de charla para futuros eventos de la comunidad.
+          ¡Nos encantaría escucharte! 💬 Completa el siguiente formulario para
+          enviarnos tu propuesta de charla y participar en futuros eventos de
+          la comunidad 🚀
         </Typography>
 
         {alertInfo?.message && (
@@ -148,7 +149,7 @@ export const CallForSpeakerModalForm: React.FC<CallForSpeakerModalProps> = ({
         <form onSubmit={handleSubmit(onSubmit)} noValidate>
           <Stack spacing={3}>
             <TextField
-              label='Tu Nombre'
+              label='Tu Nombre 👤'
               variant='outlined'
               fullWidth
               disabled={isSubmitting}
@@ -157,7 +158,7 @@ export const CallForSpeakerModalForm: React.FC<CallForSpeakerModalProps> = ({
               helperText={errors.nombre?.message}
             />
             <TextField
-              label='Correo Electrónico'
+              label='Correo Electrónico 📧'
               type='email'
               variant='outlined'
               fullWidth
@@ -167,8 +168,8 @@ export const CallForSpeakerModalForm: React.FC<CallForSpeakerModalProps> = ({
               helperText={errors.email?.message}
             />
             <TextField
-              label='Evento en el que quieres participar (Opcional)'
-              placeholder='Ej: Próximo meetup, JSConf, etc.'
+              label='Evento en el que quieres participar (Opcional) 📅'
+              placeholder='Ej: Próximo meetup, JSConf, etc. ✨'
               variant='outlined'
               fullWidth
               disabled={isSubmitting}
@@ -177,7 +178,7 @@ export const CallForSpeakerModalForm: React.FC<CallForSpeakerModalProps> = ({
               helperText={errors.evento?.message}
             />
             <TextField
-              label='Título de la Charla'
+              label='Título de la Charla 🧠'
               variant='outlined'
               fullWidth
               disabled={isSubmitting}
@@ -186,7 +187,7 @@ export const CallForSpeakerModalForm: React.FC<CallForSpeakerModalProps> = ({
               helperText={errors.titulo?.message}
             />
             <TextField
-              label='Descripción o Resumen de la charla'
+              label='Descripción o Resumen de la charla 📝'
               variant='outlined'
               fullWidth
               multiline
@@ -197,12 +198,13 @@ export const CallForSpeakerModalForm: React.FC<CallForSpeakerModalProps> = ({
               helperText={errors.descripcion?.message}
             />
 
-            <Button
+            <AnimatedButton
               type='submit'
               variant='contained'
               color='primary'
               size='large'
               fullWidth
+              hoverColor='#FFE970'
               sx={{ mt: 2 }}
               disabled={isSubmitting}
               startIcon={
@@ -211,8 +213,8 @@ export const CallForSpeakerModalForm: React.FC<CallForSpeakerModalProps> = ({
                 ) : null
               }
             >
-              {isSubmitting ? 'Enviando...' : 'Enviar Propuesta'}
-            </Button>
+              {isSubmitting ? 'Enviando... ⏳' : 'Enviar Propuesta 🚀'}
+            </AnimatedButton>
           </Stack>
         </form>
       </Box>

@@ -15,19 +15,14 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-
-const navItems = [
-  { label: 'Info', href: '#info' },
-  { label: 'Hall of Fame', href: '#hall-of-fame' },
-  { label: 'Galería', href: '#galeria' },
-  { label: 'Staff', href: '#staff' },
-  { label: 'Contacto', href: '#contacto' },
-];
+import { AnimatedButton } from '@/components/AnimatedButton';
+import { CommunityJoinModal } from '@/components/CommunityJoinModal';
 
 const DRAWER_WIDTH = 250;
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [isCommunityModalOpen, setIsCommunityModalOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -44,36 +39,35 @@ const Navbar = () => {
         pt: 4,
       }}
     >
-      <Box sx={{ mb: 4, display: 'flex', justifyContent: 'center' }}>
-        <img
-          src='/assets/javascript-chile-logo.png'
-          alt='JS Chile'
-          style={{ height: 40, width: 'auto' }}
-        />
+      <Box sx={{ mb: 4, display: 'flex', justifyContent: 'center', gap: 0.5 }}>
+        <Typography
+          sx={{
+            fontWeight: 950,
+            color: '#F0DB4F',
+            fontSize: '1rem',
+            letterSpacing: '-0.04em',
+          }}
+        >
+          JavaScript
+        </Typography>
+        <Typography
+          sx={{
+            fontWeight: 950,
+            color: 'white',
+            fontSize: '1rem',
+            letterSpacing: '-0.04em',
+          }}
+        >
+          Chile
+        </Typography>
       </Box>
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item.label} disablePadding>
-            <ListItemButton
-              component={Link}
-              href={item.href}
-              sx={{ textAlign: 'center' }}
-            >
-              <ListItemText
-                primary={item.label}
-                primaryTypographyProps={{ fontWeight: 600 }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+      <List></List>
       <Box sx={{ mt: 4 }}>
-        <Button
-          href='https://chat.whatsapp.com/GXBnfGrTbfvBo8KxOtMOZL?mode=gi_t'
-          target='_blank'
-          rel='noopener noreferrer'
+        <AnimatedButton
+          onClick={() => setIsCommunityModalOpen(true)}
           variant='contained'
           color='primary'
+          hoverColor='#FFE970'
           disableElevation
           sx={{
             fontWeight: 800,
@@ -82,11 +76,10 @@ const Navbar = () => {
             borderRadius: 100,
             bgcolor: '#F0DB4F',
             color: 'black',
-            '&:hover': { bgcolor: '#d9c547' },
           }}
         >
           Unirse a la Comunidad
-        </Button>
+        </AnimatedButton>
       </Box>
     </Box>
   );
@@ -108,50 +101,45 @@ const Navbar = () => {
           boxShadow: '0 4px 30px rgba(0, 0, 0, 0.5)',
         }}
       >
-        <Container maxWidth='lg'>
+        <Container maxWidth={false}>
           <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Link href='/' style={{ display: 'flex', alignItems: 'center' }}>
-                <Box
-                  component='img'
-                  src='/assets/javascript-chile-logo.png'
-                  alt='JS Chile'
-                  sx={{ height: 40, width: 'auto' }}
-                />
+              <Link href='/' style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                  <Typography
+                    sx={{
+                      fontWeight: 950,
+                      color: '#F0DB4F',
+                      fontSize: { xs: '1rem', md: '1.2rem' },
+                      letterSpacing: '-0.04em',
+                    }}
+                  >
+                    JavaScript
+                  </Typography>
+                  <Typography
+                    sx={{
+                      fontWeight: 950,
+                      color: 'white',
+                      fontSize: { xs: '1rem', md: '1.2rem' },
+                      letterSpacing: '-0.04em',
+                    }}
+                  >
+                    Chile
+                  </Typography>
+                </Box>
               </Link>
             </Box>
 
             <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 4 }}>
-              {navItems.map((item) => (
-                <Button
-                  key={item.label}
-                  component={Link}
-                  href={item.href}
-                  sx={{
-                    color: 'white',
-                    fontWeight: 600,
-                    fontSize: '0.95rem',
-                    transition: 'all 0.2s ease',
-                    '&:hover': {
-                      color: '#F0DB4F',
-                      bgcolor: 'transparent',
-                      transform: 'translateY(-2px)',
-                    },
-                  }}
-                >
-                  {item.label}
-                </Button>
-              ))}
             </Box>
 
             {/* Action Buttons & Mobile Menu Toggle */}
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-              <Button
-                href='https://chat.whatsapp.com/GXBnfGrTbfvBo8KxOtMOZL?mode=gi_t'
-                target='_blank'
-                rel='noopener noreferrer'
+              <AnimatedButton
+                onClick={() => setIsCommunityModalOpen(true)}
                 variant='contained'
                 color='primary'
+                hoverColor='#FFE970'
                 disableElevation
                 sx={{
                   display: { xs: 'none', sm: 'block' },
@@ -162,11 +150,10 @@ const Navbar = () => {
                   fontSize: '1rem',
                   bgcolor: '#F0DB4F',
                   color: 'black',
-                  '&:hover': { bgcolor: '#d9c547' },
                 }}
               >
                 Unirse a la Comunidad
-              </Button>
+              </AnimatedButton>
 
               <IconButton
                 color='inherit'
@@ -203,6 +190,11 @@ const Navbar = () => {
           {drawer}
         </Drawer>
       </nav>
+
+      <CommunityJoinModal
+        open={isCommunityModalOpen}
+        onClose={() => setIsCommunityModalOpen(false)}
+      />
     </>
   );
 };
