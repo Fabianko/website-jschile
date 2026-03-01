@@ -14,9 +14,11 @@ export default function Home() {
       <Box id='info'>
         <CardsContainer />
       </Box>
+      {/* ocultar temporalmente hasta que se actualice el contenido 
       <Box id='hall-of-fame'>
         <HomeHallOfFame />
       </Box>
+      */}
       <Box id='galeria'>
         <HomeGallery />
       </Box>
