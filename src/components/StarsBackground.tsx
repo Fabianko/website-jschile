@@ -31,6 +31,7 @@ const generateStars = (count: number, seed: number) => {
 };
 
 export const StarsBackground = () => {
+  const [isMounted, setIsMounted] = useState(false);
   const layer1Stars = useMemo(() => generateStars(80, 1), []);
   const layer2Stars = useMemo(() => generateStars(120, 2), []);
   const layer3Stars = useMemo(() => generateStars(150, 3), []);
@@ -39,6 +40,8 @@ export const StarsBackground = () => {
   const [boostedStars, setBoostedStars] = useState<Set<string>>(new Set());
 
   useEffect(() => {
+    setIsMounted(true);
+
     const boostInterval = setInterval(() => {
       // Seleccionar aleatoriamente entre 30-50% de estrellas para acelerar
       const allStars = [...layer1Stars, ...layer2Stars, ...layer3Stars];
@@ -55,6 +58,10 @@ export const StarsBackground = () => {
 
     return () => clearInterval(boostInterval);
   }, [layer1Stars, layer2Stars, layer3Stars]);
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <Box
